@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Pelajaran Kelas III A</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --green-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --yellow-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --purple-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --orange-gradient: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            --blue-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --dark-bg: #0f172a;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 20px 40px rgba(37, 117, 252, 0.15);
+            --radius: 20px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-bottom: 30px;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.9) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(106, 17, 203, 0.05) 0%, transparent 20%);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+        
+        /* Header Styles */
+        header {
+            padding: 40px 0 30px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-gradient);
+            z-index: -2;
+        }
+        
+        .header-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: -1;
+        }
+        
+        .header-content {
+            text-align: center;
+            color: white;
+        }
+        
+        .header-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            letter-spacing: 0.5px;
+        }
+        
+        .header-content .subtitle {
+            font-size: 1.4rem;
+            font-weight: 400;
+            opacity: 0.95;
+            margin-bottom: 25px;
+        }
+        
+        .date-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .date-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 15px 25px;
+            min-width: 200px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .date-card h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+            opacity: 0.9;
+        }
+        
+        .date-card p {
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+        
+        .date-card .countdown {
+            color: #ffd166;
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+        
+        /* Jadwal Section */
+        .section-title {
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 5px;
+            background: var(--primary-gradient);
+            border-radius: 5px;
+        }
+        
+        .section-title i {
+            margin-right: 15px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .days-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .day-card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+        
+        .day-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .day-card.today {
+            box-shadow: 0 0 0 3px #3a86ff, 0 15px 30px rgba(58, 134, 255, 0.2);
+        }
+        
+        .day-header {
+            padding: 25px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .day-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+            z-index: 0;
+        }
+        
+        .day-header h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+        }
+        
+        .day-header h3 i {
+            margin-right: 12px;
+            font-size: 1.4rem;
+        }
+        
+        .day-icon {
+            font-size: 2.5rem;
+            position: relative;
+            z-index: 1;
+            opacity: 0.9;
+        }
+        
+        .today-badge {
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: #ff4757;
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+            box-shadow: 0 3px 10px rgba(255, 71, 87, 0.4);
+        }
+        
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .schedule-table th {
+            background-color: #f1f5f9;
+            padding: 18px 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .schedule-table td {
+            padding: 18px 15px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .schedule-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .schedule-table tr {
+            transition: background-color 0.2s;
+        }
+        
+        .schedule-table tr:hover {
+            background-color: rgba(106, 17, 203, 0.03);
+        }
+        
+        .time-cell {
+            font-weight: 600;
+            color: #3a86ff;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+        }
+        
+        .subject-cell {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        .teacher-cell {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .break-row {
+            background-color: rgba(255, 209, 102, 0.1) !important;
+            color: #e67700;
+            font-weight: 600;
+        }
+        
+        .break-row td {
+            border-bottom: 1px dashed rgba(255, 209, 102, 0.3);
+        }
+        
+        /* Keterangan Section */
+        .abbreviation-section {
+            background-color: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 35px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+        
+        .abbreviations {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .abbr-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: rgba(106, 17, 203, 0.03);
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+        
+        .abbr-item:hover {
+            transform: translateY(-5px);
+            background: rgba(106, 17, 203, 0.08);
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.1);
+        }
+        
+        .abbr-code {
+            font-weight: 700;
+            font-size: 1.1rem;
+            background: var(--primary-gradient);
+            color: white;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .abbr-meaning {
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background: var(--dark-bg);
+            color: white;
+            border-radius: var(--radius);
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .reminder-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 5px solid #3a86ff;
+        }
+        
+        .reminder {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            line-height: 1.5;
+            color: #e2e8f0;
+        }
+        
+        .reminder i {
+            color: #3a86ff;
+            margin-right: 10px;
+        }
+        
+        .note {
+            font-size: 1rem;
+            opacity: 0.8;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .days-container {
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            }
+            
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .date-info {
+                gap: 20px;
+            }
+            
+            .date-card {
+                min-width: 180px;
+                padding: 12px 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .days-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .header-content .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .date-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .date-card {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .section-title {
+                font-size: 1.7rem;
+            }
+            
+            .abbreviations {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            header {
+                padding: 30px 0 20px;
+            }
+            
+            .header-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .day-card {
+                border-radius: 15px;
+            }
+            
+            .schedule-table th, 
+            .schedule-table td {
+                padding: 15px 10px;
+            }
+            
+            .abbreviation-section {
+                padding: 25px 20px;
+            }
+            
+            footer {
+                padding: 30px 20px;
+            }
+        }
+        
+        /* Animasi */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .day-card {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+        
+        .day-card:nth-child(1) { animation-delay: 0.1s; }
+        .day-card:nth-child(2) { animation-delay: 0.2s; }
+        .day-card:nth-child(3) { animation-delay: 0.3s; }
+        .day-card:nth-child(4) { animation-delay: 0.4s; }
+        .day-card:nth-child(5) { animation-delay: 0.5s; }
+        .day-card:nth-child(6) { animation-delay: 0.6s; }
+        
+        /* Countdown animation */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-bg"></div>
+        <div class="container">
+            <div class="header-content">
+                <h1>JADWAL PELAJARAN KELAS III A</h1>
+                <div class="subtitle">Tahun Pelajaran 2024/2025 - Semester 2</div>
+                
+                <div class="date-info">
+                    <div class="date-card">
+                        <h3><i class="far fa-calendar"></i> HARI INI</h3>
+                        <p id="current-day">Senin</p>
+                    </div>
+                    
+                    <div class="date-card">
+                        <h3><i class="far fa-clock"></i> TANGGAL</h3>
+                        <p id="current-date">1 Januari 2024</p>
+                    </div>
+                    
+                    <div class="date-card">
+                        <h3><i class="fas fa-hourglass-half"></i> WAKTU PULANG</h3>
+                        <p class="countdown pulse" id="countdown">--:--:--</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="schedule-container">
+            <h2 class="section-title"><i class="fas fa-calendar-alt"></i> Jadwal Pelajaran</h2>
+            <div class="days-container">
+                <!-- Senin -->
+                <div class="day-card" id="senin">
+                    <div class="day-header" style="background: var(--blue-gradient);">
+                        <h3><i class="fas fa-book-open"></i> SENIN</h3>
+                        <div class="day-icon">📚</div>
+                    </div>
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Jam</th>
+                                <th>Waktu</th>
+                                <th>Mata Pelajaran</th>
+                                <th>Guru Pengampu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="time-cell">I</td>
+                                <td class="time-cell">08.05–08.40</td>
+                                <td class="subject-cell">AA</td>
+                                <td class="teacher-cell">Ahmad Muafi Fachrurozi</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">II</td>
+                                <td class="time-cell">08.40–09.15</td>
+                                <td class="subject-cell">AA</td>
+                                <td class="teacher-cell">Ahmad Muafi Fachrurozi</td>
+                            </tr>
+                            <tr class="break-row">
+                                <td colspan="4" style="text-align: center;">Istirahat</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">III</td>
+                                <td class="time-cell">09.30–10.05</td>
+                                <td class="subject-cell">BD</td>
+                                <td class="teacher-cell">Fajar Riana, S.Kom</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">IV</td>
+                                <td class="time-cell">10.05–10.40</td>
+                                <td class="subject-cell">BD</td>
+                                <td class="teacher-cell">Fajar Riana, S.Kom</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">V</td>
+                                <td class="time-cell">10.40–11.15</td>
+                                <td class="subject-cell">MTK</td>
+                                <td class="teacher-cell">Fatmaisyaroh, S.Pd</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">VI</td>
+                                <td class="time-cell">11.15–11.50</td>
+                                <td class="subject-cell">MTK</td>
+                                <td class="teacher-cell">Fatmaisyaroh, S.Pd</td>
+                            </tr>
+                            <tr class="break-row">
+                                <td colspan="4" style="text-align: center;">Istirahat</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">VII</td>
+                                <td class="time-cell">12.15–12.50</td>
+                                <td class="subject-cell">PP</td>
+                                <td class="teacher-cell">Siti Uswatun Hasanah, S.Pd</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">VIII</td>
+                                <td class="time-cell">12.50–13.30</td>
+                                <td class="subject-cell">PP</td>
+                                <td class="teacher-cell">Siti Uswatun Hasanah, S.Pd</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Selasa -->
+                <div class="day-card" id="selasa">
+                    <div class="day-header" style="background: var(--green-gradient);">
+                        <h3><i class="fas fa-pencil-alt"></i> SELASA</h3>
+                        <div class="day-icon">✏️</div>
+                    </div>
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Jam</th>
+                                <th>Waktu</th>
+                                <th>Mata Pelajaran</th>
+                                <th>Guru Pengampu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="time-cell">I</td>
+                                <td class="time-cell">08.05–08.40</td>
+                                <td class="subject-cell">FQ</td>
+                                <td class="teacher-cell">Ahmad Muafi Fachrurozi</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">II</td>
+                                <td class="time-cell">08.40–09.15</td>
+                                <td class="subject-cell">FQ</td>
+                                <td class="teacher-cell">Ahmad Muafi Fachrurozi</td>
+                            </tr>
+                            <tr class="break-row">
+                                <td colspan="4" style="text-align: center;">Istirahat</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">III</td>
+                                <td class="time-cell">09.30–10.05</td>
+                                <td class="subject-cell">MTK</td>
+                                <td class="teacher-cell">Fatmaisyaroh, S.Pd</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">IV</td>
+                                <td class="time-cell">10.05–10.40</td>
+                                <td class="subject-cell">MTK</td>
+                                <td class="teacher-cell">Fatmaisyaroh, S.Pd</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">V</td>
+                                <td class="time-cell">10.40–11.15</td>
+                                <td class="subject-cell">MTK</td>
+                                <td class="teacher-cell">Fatmaisyaroh, S.Pd</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">VI</td>
+                                <td class="time-cell">11.15–11.50</td>
+                                <td class="subject-cell">IPAS</td>
+                                <td class="teacher-cell">Saudah Siti Khotimah, S.Pd</td>
+                            </tr>
+                            <tr class="break-row">
+                                <td colspan="4" style="text-align: center;">Istirahat</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">VII</td>
+                                <td class="time-cell">11.50–12.15</td>
+                                <td class="subject-cell">IPAS</td>
+                                <td class="teacher-cell">Saudah Siti Khotimah, S.Pd</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">VIII</td>
+                                <td class="time-cell">12.15–12.50</td>
+                                <td class="subject-cell">IPAS</td>
+                                <td class="teacher-cell">Saudah Siti Khotimah, S.Pd</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">VIII</td>
+                                <td class="time-cell">12.50–13.30</td>
+                                <td class="subject-cell">IPAS</td>
+                                <td class="teacher-cell">Saudah Siti Khotimah, S.Pd</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Rabu -->
+                <div class="day-card" id="rabu">
+                    <div class="day-header" style="background: var(--orange-gradient);">
+                        <h3><i class="fas fa-running"></i> RABU</h3>
+                        <div class="day-icon">🏃‍♂️</div>
+                    </div>
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Jam</th>
+                                <th>Waktu</th>
+                                <th>Mata Pelajaran</th>
+                                <th>Guru Pengampu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="time-cell">I</td>
+                                <td class="time-cell">08.05–08.40</td>
+                                <td class="subject-cell">PJOK</td>
+                                <td class="teacher-cell">Nur Fadzilah, S.Pd</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">II</td>
+                                <td class="time-cell">08.40–09.15</td>
+                                <td class="subject-cell">PJOK</td>
+                                <td class="teacher-cell">Nur Fadzilah, S.Pd</td>
+                            </tr>
+                            <tr class="break-row">
+                                <td colspan="4" style="text-align: center;">Istirahat</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">III</td>
+                                <td class="time-cell">09.30–10.05</td>
+                                <td class="subject-cell">PP</td>
+                                <td class="teacher-cell">Siti Uswatun Hasanah, S.Pd</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">IV</td>
+                                <td class="time-cell">10.05–10.40</td>
+                                <td class="subject-cell">PP</td>
+                                <td class="teacher-cell">Siti Uswatun Hasanah, S.Pd</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">V</td>
+                                <td class="time-cell">10.40–11.15</td>
+                                <td class="subject-cell">SBP</td>
+                                <td class="teacher-cell">Mar Atus Shoilhah, S.Pd</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">VI</td>
+                                <td class="time-cell">11.15–11.50</td>
+                                <td class="subject-cell">SBP</td>
+                                <td class="teacher-cell">Mar Atus Shoilhah, S.Pd</td>
+                            </tr>
+                            <tr class="break-row">
+                                <td colspan="4" style="text-align: center;">Istirahat</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">VII</td>
+                                <td class="time-cell">12.15–12.50</td>
+                                <td class="subject-cell">B. Inggris</td>
+                                <td class="teacher-cell">Badriyah Widi Andari, S.Pd</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">VIII</td>
+                                <td class="time-cell">12.50–13.30</td>
+                                <td class="subject-cell">B. Inggris</td>
+                                <td class="teacher-cell">Badriyah Widi Andari, S.Pd</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Kamis -->
+                <div class="day-card" id="kamis">
+                    <div class="day-header" style="background: var(--purple-gradient);">
+                        <h3><i class="fas fa-history"></i> KAMIS</h3>
+                        <div class="day-icon">📖</div>
+                    </div>
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Jam</th>
+                                <th>Waktu</th>
+                                <th>Mata Pelajaran</th>
+                                <th>Guru Pengampu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="time-cell">I</td>
+                                <td class="time-cell">08.05–08.40</td>
+                                <td class="subject-cell">SKI</td>
+                                <td class="teacher-cell">Ahmad Muafi Fachrurozi</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">II</td>
+                                <td class="time-cell">08.40–09.15</td>
+                                <td class="subject-cell">SKI</td>
+                                <td class="teacher-cell">Ahmad Muafi Fachrurozi</td>
+                            </tr>
+                            <tr class="break-row">
+                                <td colspan="4" style="text-align: center;">Istirahat</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">III</td>
+                                <td class="time-cell">09.30–10.05</td>
+                                <td class="subject-cell">BI</td>
+                                <td class="teacher-cell">Saudah Siti Khotimah, S.Pd</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">IV</td>
+                                <td class="time-cell">10.05–10.40</td>
+                                <td class="subject-cell">BI</td>
+                                <td class="teacher-cell">Saudah Siti Khotimah, S.Pd</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">V</td>
+                                <td class="time-cell">10.40–11.15</td>
+                                <td class="subject-cell">BAR</td>
+                                <td class="teacher-cell">Ahmad Muafi Fachrurozi</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">VI</td>
+                                <td class="time-cell">11.15–11.50</td>
+                                <td class="subject-cell">BAR</td>
+                                <td class="teacher-cell">Ahmad Muafi Fachrurozi</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">VII</td>
+                                <td class="time-cell">12.15–12.50</td>
+                                <td class="subject-cell" colspan="2" style="text-align: center;">-</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">VIII</td>
+                                <td class="time-cell">12.50–13.30</td>
+                                <td class="subject-cell" colspan="2" style="text-align: center;">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Jumat -->
+                <div class="day-card" id="jumat">
+                    <div class="day-header" style="background: var(--secondary-gradient);">
+                        <h3><i class="fas fa-mosque"></i> JUMAT</h3>
+                        <div class="day-icon">🕌</div>
+                    </div>
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Jam</th>
+                                <th>Waktu</th>
+                                <th>Mata Pelajaran</th>
+                                <th>Guru Pengampu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="time-cell">I</td>
+                                <td class="time-cell">08.05–08.40</td>
+                                <td class="subject-cell">BI</td>
+                                <td class="teacher-cell">Saudah Siti Khotimah, S.Pd</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">II</td>
+                                <td class="time-cell">08.40–09.15</td>
+                                <td class="subject-cell">BI</td>
+                                <td class="teacher-cell">Saudah Siti Khotimah, S.Pd</td>
+                            </tr>
+                            <tr class="break-row">
+                                <td colspan="4" style="text-align: center;">Istirahat</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">III</td>
+                                <td class="time-cell">09.30–10.05</td>
+                                <td class="subject-cell">SBP</td>
+                                <td class="teacher-cell">Mar Atus Shoilhah, S.Pd</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">IV</td>
+                                <td class="time-cell">10.05–10.40</td>
+                                <td class="subject-cell">SBP</td>
+                                <td class="teacher-cell">Mar Atus Shoilhah, S.Pd</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Sabtu -->
+                <div class="day-card" id="sabtu">
+                    <div class="day-header" style="background: linear-gradient(135deg, #00b09b 0%, #96c93d 100%);">
+                        <h3><i class="fas fa-star"></i> SABTU</h3>
+                        <div class="day-icon">🌟</div>
+                    </div>
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Jam</th>
+                                <th>Waktu</th>
+                                <th>Mata Pelajaran</th>
+                                <th>Guru Pengampu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="time-cell">I</td>
+                                <td class="time-cell">08.05–08.40</td>
+                                <td class="subject-cell">IPAS</td>
+                                <td class="teacher-cell">Saudah Siti Khotimah, S.Pd</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">II</td>
+                                <td class="time-cell">08.40–09.15</td>
+                                <td class="subject-cell">IPAS</td>
+                                <td class="teacher-cell">Saudah Siti Khotimah, S.Pd</td>
+                            </tr>
+                            <tr class="break-row">
+                                <td colspan="4" style="text-align: center;">Istirahat</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">III</td>
+                                <td class="time-cell">09.30–10.05</td>
+                                <td class="subject-cell">BI</td>
+                                <td class="teacher-cell">Saudah Siti Khotimah, S.Pd</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">IV</td>
+                                <td class="time-cell">10.05–10.40</td>
+                                <td class="subject-cell">BI</td>
+                                <td class="teacher-cell">Saudah Siti Khotimah, S.Pd</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">V</td>
+                                <td class="time-cell">10.40–11.15</td>
+                                <td class="subject-cell">QH</td>
+                                <td class="teacher-cell">Ahmad Muafi Fachrurozi</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">VI</td>
+                                <td class="time-cell">11.15–11.50</td>
+                                <td class="subject-cell">QH</td>
+                                <td class="teacher-cell">Ahmad Muafi Fachrurozi</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        
+        <section class="abbreviation-section">
+            <h2 class="section-title"><i class="fas fa-info-circle"></i> Keterangan Mata Pelajaran</h2>
+            <div class="abbreviations">
+                <div class="abbr-item">
+                    <div class="abbr-code">AA</div>
+                    <div class="abbr-meaning">Aqidah Akhlak</div>
+                </div>
+                <div class="abbr-item">
+                    <div class="abbr-code">BD</div>
+                    <div class="abbr-meaning">Bahasa Daerah</div>
+                </div>
+                <div class="abbr-item">
+                    <div class="abbr-code">MTK</div>
+                    <div class="abbr-meaning">Matematika</div>
+                </div>
+                <div class="abbr-item">
+                    <div class="abbr-code">PP</div>
+                    <div class="abbr-meaning">Pendidikan Pancasila</div>
+                </div>
+                <div class="abbr-item">
+                    <div class="abbr-code">FQ</div>
+                    <div class="abbr-meaning">Fiqih</div>
+                </div>
+                <div class="abbr-item">
+                    <div class="abbr-code">IPAS</div>
+                    <div class="abbr-meaning">Ilmu Pengetahuan Alam & Sosial</div>
+                </div>
+                <div class="abbr-item">
+                    <div class="abbr-code">PJOK</div>
+                    <div class="abbr-meaning">Pendidikan Jasmani, Olahraga & Kesehatan</div>
+                </div>
+                <div class="abbr-item">
+                    <div class="abbr-code">SBP</div>
+                    <div class="abbr-meaning">Seni Budaya & Prakarya</div>
+                </div>
+                <div class="abbr-item">
+                    <div class="abbr-code">BI</div>
+                    <div class="abbr-meaning">Bahasa Indonesia</div>
+                </div>
+                <div class="abbr-item">
+                    <div class="abbr-code">SKI</div>
+                    <div class="abbr-meaning">Sejarah Kebudayaan Islam</div>
+                </div>
+                <div class="abbr-item">
+                    <div class="abbr-code">BAR</div>
+                    <div class="abbr-meaning">Bahasa Arab</div>
+                </div>
+                <div class="abbr-item">
+                    <div class="abbr-code">QH</div>
+                    <div class="abbr-meaning">Qur'an Hadits</div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="container">
+        <div class="reminder-box">
+            <div class="reminder">
+                <i class="fas fa-bullhorn"></i> Datang tepat waktu, siapkan buku sesuai jadwal, dan selesaikan tugas dengan tanggung jawab.
+            </div>
+            <div class="note">
+                Jadwal ini adalah panduan kita untuk belajar tertib, rajin, dan berakhlak mulia. 
+                Mari manfaatkan waktu sebaik-baiknya untuk meraih prestasi terbaik di Semester 2 Tahun Pelajaran 2024/2025.
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Fungsi untuk menampilkan hari dan tanggal saat ini
+        function updateDateTime() {
+            const now = new Date();
+            const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+            const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+            
+            const currentDay = days[now.getDay()];
+            const currentDate = now.getDate();
+            const currentMonth = months[now.getMonth()];
+            const currentYear = now.getFullYear();
+            
+            // Update elemen HTML
+            document.getElementById('current-day').textContent = currentDay;
+            document.getElementById('current-date').textContent = `${currentDate} ${currentMonth} ${currentYear}`;
+            
+            // Highlight hari ini di jadwal
+            document.querySelectorAll('.day-card').forEach(card => {
+                card.classList.remove('today');
+                if (card.id.toLowerCase() === currentDay.toLowerCase()) {
+                    card.classList.add('today');
+                    
+                    // Tambahkan badge "Hari Ini"
+                    if (!card.querySelector('.today-badge')) {
+                        const badge = document.createElement('div');
+                        badge.className = 'today-badge';
+                        badge.textContent = 'HARI INI';
+                        card.querySelector('.day-header').appendChild(badge);
+                    }
+                } else {
+                    // Hapus badge jika ada
+                    const badge = card.querySelector('.today-badge');
+                    if (badge) badge.remove();
+                }
+            });
+        }
+        
+        // Fungsi untuk menghitung countdown waktu pulang
+        function updateCountdown() {
+            const now = new Date();
+            const currentDay = now.getDay(); // 0 = Minggu, 1 = Senin, ..., 6 = Sabtu
+            const currentHour = now.getHours();
+            const currentMinute = now.getMinutes();
+            const currentSecond = now.getSeconds();
+            
+            // Waktu pulang berdasarkan hari (dalam jam dan menit)
+            let schoolEndHour = 13; // 13:30 untuk sebagian besar hari
+            let schoolEndMinute = 30;
+            
+            // Atur waktu pulang berdasarkan hari
+            if (currentDay === 4) { // Jumat
+                schoolEndHour = 10;
+                schoolEndMinute = 40;
+            } else if (currentDay === 5) { // Sabtu
+                schoolEndHour = 11;
+                schoolEndMinute = 50;
+            } else if (currentDay === 0) { // Minggu (libur)
+                document.getElementById('countdown').textContent = "LIBUR";
+                document.getElementById('countdown').classList.remove('pulse');
+                return;
+            }
+            
+            // Hitung waktu menuju pulang
+            const endTime = new Date();
+            endTime.setHours(schoolEndHour, schoolEndMinute, 0, 0);
+            
+            // Jika sudah lewat waktu pulang
+            if (now > endTime) {
+                document.getElementById('countdown').textContent = "SUDAH PULANG";
+                document.getElementById('countdown').classList.remove('pulse');
+                return;
+            }
+            
+            // Jika belum masuk sekolah (sebelum jam 8:05)
+            const startTime = new Date();
+            startTime.setHours(8, 5, 0, 0);
+            if (now < startTime) {
+                document.getElementById('countdown').textContent = "BELUM MASUK";
+                document.getElementById('countdown').classList.remove('pulse');
+                return;
+            }
+            
+            // Hitung selisih waktu
+            const diff = endTime - now;
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            // Format tampilan
+            const formattedTime = 
+                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            document.getElementById('countdown').textContent = formattedTime;
+            document.getElementById('countdown').classList.add('pulse');
+        }
+        
+        // Inisialisasi saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            updateDateTime();
+            updateCountdown();
+            
+            // Update countdown setiap detik
+            setInterval(updateCountdown, 1000);
+            
+            // Update tanggal setiap menit (untuk memastikan hari tidak tertinggal)
+            setInterval(updateDateTime, 60000);
+            
+            // Efek klik pada kartu jadwal
+            document.querySelectorAll('.day-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 200);
+                });
+            });
+            
+            // Efek hover pada item keterangan mata pelajaran
+            document.querySelectorAll('.abbr-item').forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+        
+        // Tambahkan efek visual saat scroll
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            const header = document.querySelector('header');
+            
+            // Efek parallax pada header
+            if (header) {
+                header.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+            }
+        });
+    </script>
+</body>
+</html>
